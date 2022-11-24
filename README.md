@@ -1047,7 +1047,7 @@ shopping();
 
 #### <a name="eventloop"></a> Event Loop and Task Queue
 
->JavaScript :
+>**JavaScript** :
 JS is such a code which doesn't wait for anything.
 > 1. JS is single threaded language, non blocking, asynchronous language.
 > 2. It has a call stack, event loop, callback queue and other API's
