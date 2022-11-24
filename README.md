@@ -1048,8 +1048,8 @@ shopping();
 #### <a name="eventloop"></a> Event Loop and Task Queue
 
 >**JavaScript** :
-JS is such a code which doesn't wait for anything.
-> 1. JS is single threaded language, non blocking, asynchronous language.
+JS is such a code which doesn't wait for anything *(Asynchronous,Non blocking)*
+> 1. JS is *single threaded language, non blocking, asynchronous language.*
 > 2. It has a call stack, event loop, callback queue and other API's
 > 3. V8 engine has call stack and a Heap.
 > 4. This heap is used for memory allocation and the stack holds the execution context.
@@ -1062,7 +1062,7 @@ only if the call stack is found empty.
 >- set Timeout (()=>{},0) still it will be queued in the task queue by the event loop.
 
 >**Task Queue** :
-JS can do only one task at a time.
+JS can do only one task at a time.*(Single Threaded language)*
 Rest are queued to the task queue waiting for the current task executing to get finished.
 >- When we run set Timeout, webAPI's run a timer and after the timer is finished, it pushes the set Timeout
 in to the task queue.
