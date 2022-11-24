@@ -934,7 +934,8 @@ const add = async() => {
  > **Await** : This is another keyword that works inside async "functions" only. 
  >- The await keyword makes javaScript wait until the promise is settled and returns a value. It makes
 it easy to read and use promises efficiently.
- *Async and Await works together*
+ > - *Async and Await works together*
+
 ```javascript
 async function weatherUpdate() {
   let bombayWeather = new Promise((resolve, reject) => {
