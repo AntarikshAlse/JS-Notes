@@ -1248,7 +1248,7 @@ ragini.calcAge(); // Priority is given to its method of same name as calcAge() i
 ragini.sayHi(); // Can also use its grandparent (PersonPrototype) method
 ```
 
-> **Currying** :  Its a method of creating new function fro existing function.
+> **Currying** :  Its a method of creating new function from existing function.
 
 ```javascript
 const multiply = (a,b) => {
