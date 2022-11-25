@@ -13,12 +13,11 @@
 10.  [Closures](#closures)
 11.  [Typed Coercion](#typedc)
 12.  [Promise](#promises)
-13. [Async](#async)
-14. [Syncronous Javascript](#syncJS)
-15. [CallBack Hell](#callback-hell)
-16. [Promise Chaining](#pchain)
-17. [Async and await ](#)
-18. [Event loop & Task Queue](#eventloop)
+13. [Syncronous Javascript](#syncJS)
+14. [CallBack Hell](#callback-hell)
+15. [Promise Chaining](#pchain)
+16. [Async and await ](#async)
+17. [Event loop & Task Queue](#eventloop)
 
 
 
@@ -681,8 +680,10 @@ promise //consumer
         
     });
 ```
+
 #### CallBack Hell
 >Callback Hell causing functions
+
 ```javascript
 function addItemsToCart(list, callbackFn){
     setTimeout(() => {
@@ -740,9 +741,10 @@ promise
     })*/
 
 ```
->Solution 1 :
-```
 
+>Solution 1 :
+
+```
 function addItemsToCart(list){
 //callback executer functions resolve and reject
 //Producers
@@ -778,7 +780,7 @@ addItemsToCart("Jeans And Shirt").then((res1)=>{
     })
 });
 ```
-#### <a name="pchain"></a> Promise Chaining - It Helps to Improve the ==pyramid of doom== from the ==*nested promises*==
+#### <a name="pchain"></a> **Promise Chaining** - It Helps to Improve the ==pyramid of doom== from the ==*nested promises*==
 
 ```javascript
 addItemsToCart("Jeans And Shirt")
@@ -800,8 +802,10 @@ addItemsToCart("Jeans And Shirt")
     console.log("Promise Chain ended here")
 })
 ```
-##### Promise Combinators
+##### **Promise Combinators**
+
 >Starting functions
+
 ```javascript
 function addItemsToCart(list){
     return new Promise((resolve,reject)=>{
