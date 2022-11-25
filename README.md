@@ -18,6 +18,7 @@
 15. [Promise Chaining](#pchain)
 16. [Async and await ](#async)
 17. [Event loop & Task Queue](#eventloop)
+18. [Prototypes,Higher Order Functions, Currying,First Class Functions](#proto)
 
 
 
@@ -1073,3 +1074,117 @@ Rest are queued to the task queue waiting for the current task executing to get 
 in to the task queue.
 >- These waiting tasks in the task queue are then pushed in to the call stack by the event loop where they
 can be executed.
+
+<!-- sdssd -->
+> 25th November, 2022
+ Start solving this question
+ Using the url = "https://jsonplaceholder.typicode.com/todos/", fetch the data using .then and console 
+ the output.
+ USe the same url to also console the O/P using async and await.
+ take the help of fetch() to get the data.
+
+ const promise = new Promise((res,rej)=>{
+     setTimeout(() => {
+         res("I am resolved");
+     }, 2000);
+ });
+ promise.then((data)=>{
+     console.log(data);
+ })
+ function getData(){
+     const url = "https://jsonplaceholder.typicode.com/todos/2";
+     fetch(url)
+         .then((response)=>{
+             return response.json();
+         })
+         .then((data)=>{
+             return data;
+         })
+ }
+ getData()
+     .then((data)=>{
+             console.log(data);
+          })
+
+ async function getData(){
+     const url = "https://jsonplaceholder.typicode.com/todos/";
+     let response = await fetch(url);
+     console.log(response);
+     let data = await response.json();
+     console.log(data);
+     return data;
+ }
+ async function getOutput(){
+     let result = await getData();
+     result.map((item)=>{
+         console.log(item.userId);
+         console.log(item.id);
+         console.log(item.title);
+         console.log(item.completed);
+     })
+ }
+ getOutput()
+
+ const add = (a,b) => {//parameters
+     console.log(a+b);
+ }
+ add(2,3);//2,3 are arguments
+
+
+#### <a name="proto"></a> Prototypes, Prototypes Inheritance, First Class Functions, Higher Order Functions, Currying.
+
+ >**First Class Functions** : The function can be used as values to be passed into another functions(arguments) or 
+   can be returned from another functions as values. They are also called as *first class citizens*.
+ > - "Normal function which do not pass or return any other function are called as first class function"
+
+```javascript
+ param = function x(){
+     console.log("x as function");
+ }
+ const b = function(){//
+     return function(){
+         console.log("I am a returned string");
+     }
+ }
+ b()();
+ ```
+
+> **Higher Order functions** : The functions accepting first class functions or giving first class functions are 
+ called as higher order functions.
+
+```javascript
+const b = function(param){
+    param();
+}
+
+function x(){
+    console.log("X");
+}
+b(x);
+```
+> "The function having the ability to pass or return any other function is called Higher Order Function"
+> -  function x is first class function and since function b is accepting the FCF(x), its(Fn b) therefore know 
+ as (Higher Order Function)HOF.
+
+```javascript
+const c = function(){
+    return function a(){
+        console.log("I am returned function");
+    }
+}
+c();
+// the returned function "a" from the function c is a FCF and the function C returning the FCF(a) is called as
+//Higher order function.
+
+const sayHi = (friend) => {
+    console.log(`Hello my friend ${friend}`);
+}
+
+const greeting = (friend, callBackFn) => {//HOF
+
+    callBackFn(friend);//function call//sayHi("Ravi")
+}
+
+greeting("ravi",sayHi);//FCF
+
+```
