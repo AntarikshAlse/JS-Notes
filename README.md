@@ -1077,12 +1077,13 @@ can be executed.
 
 <!-- sdssd -->
 > 25th November, 2022
- Start solving this question
- Using the url = "https://jsonplaceholder.typicode.com/todos/", fetch the data using .then and console 
+ - Start solving this question
+ - Using the url = "https://jsonplaceholder.typicode.com/todos/", fetch the data using .then and console 
  the output.
- USe the same url to also console the O/P using async and await.
- take the help of fetch() to get the data.
+ - USe the same url to also console the O/P using async and await.
+ - take the help of fetch() to get the data.
 
+```javascript
  const promise = new Promise((res,rej)=>{
      setTimeout(() => {
          res("I am resolved");
@@ -1129,13 +1130,13 @@ can be executed.
      console.log(a+b);
  }
  add(2,3);//2,3 are arguments
+```
 
+#### <a name="proto"></a> **Prototypes, Prototypes Inheritance, First Class Functions, Higher Order Functions, Currying**
 
-#### <a name="proto"></a> Prototypes, Prototypes Inheritance, First Class Functions, Higher Order Functions, Currying.
-
- >**First Class Functions** : The function can be used as values to be passed into another functions(arguments) or 
+> **First Class Functions** : The function can be used as values to be passed into another functions(arguments) or 
    can be returned from another functions as values. They are also called as *first class citizens*.
- > - "Normal function which do not pass or return any other function are called as first class function"
+> - "Normal function which do not pass or return any other function are called as first class function"
 
 ```javascript
  param = function x(){
