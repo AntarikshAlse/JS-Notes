@@ -14,6 +14,7 @@
 11.  [Typed Coercion](#typedc)
 12.  [Promise](#promises)
 13. [Syncronous Javascript](#syncJS)
+13. [Call Bind Apply](#callBind) 
 14. [CallBack Hell](#callback-hell)
 15. [Promise Chaining](#pchain)
 16. [Async and await ](#async)
@@ -380,9 +381,11 @@ console.log(number+boole);5
 let num = 23;
 let str = "23";
 console.log(num+str);
+```
 
-// call , apply , bind- allows us for function borrowing.
+#### <a name="callBind"></a> **call , apply , bind- allows us for function borrowing**
 
+```javascript
 let showDetails = function(gender, age){
     console.log(`${this.fullName} is the name  of the employee with the employee ID as ${this.employeeId} 
     and working in the ${this.department} department having gender as ${gender} and age as ${age}`);
@@ -1189,3 +1192,77 @@ const greeting = (friend, callBackFn) => {//HOF
 greeting("ravi",sayHi);//FCF
 
 ```
+> **Prototype** :  **Prototype** are similar to **class** 
+
+```javascript
+const PersonPrototype = {
+    calcAge(){
+    console.log( `${2022 - this.bYear} ${this.fu11Name}'s current age` );
+    }
+    initialiseMyProperties (fullName, bYear){
+        this.fullName = fullName;
+        this.bYear = bYear;
+    },
+    sayHi(){
+    console.log(`${this.fullName} says Hi!!`);
+    }
+}
+const jay = Object.create(PersonPrototype);
+console.log("myObject",jay);
+jay.calcAge();
+```
+> **Prototype Inheritance** 
+
+```javascript
+const StudentPrototype = Object.create(PersonPrototype);
+
+StudentPrototype.initialiseStudent = function(fullName, bYear, department){
+    PersonPrototype.initialiseMyProperties.apply(this, [fullName, bYear]);
+    this.department =department;
+}
+StudentPrototype.introduce = function(){
+    console.log(`${this.fullName}' birth year is ${this.bYear} and studies in the department ${this.department}`);
+}
+
+StudentPrototype.calcAge = function(){
+    console.log(`${2022 - this.bYear} `);
+}
+
+const ragini = Object.create(StudentPrototype);
+ragini.initialiseStudent("Ragini Sharma",1996,"CSE");
+console.log(ragini);
+
+ragini.introduce();
+
+ragini.calcAge();
+
+ragini.sayHi();
+
+// jay.introduce();
+
+const ragini = Object.create(StudentPrototype);
+ragini.initialiseStudent("Ragini Sharma", 1996, "CSE");
+console.log(ragini);
+ragini.introduce();
+ragini.calcAge(); // Priority is given to its method of same name as calcAge() in immediate Parent with insted of using its grandparent (PersonPrototype)
+ragini.sayHi(); // Can also use its grandparent (PersonPrototype) method
+```
+
+> **Currying** :  Its a method of creating new function fro existing function.
+
+```javascript
+const multiply = (a,b) => {
+    console.log(a*b);
+}
+
+const multiplyByTwo = multiply.bind(this, 2);
+
+multiplyByTwo(4);//2*4
+
+const multiplyByThree = multiply.bind(this,3);
+multiplyByThree(3);
+```
+
+
+
+
