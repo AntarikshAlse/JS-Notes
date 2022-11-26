@@ -17,7 +17,7 @@
 13. [Call Bind Apply](#callBind) 
 14. [CallBack Hell](#callback-hell)
 15. [Promise Chaining](#pchain)
-16. [Async and await ](#async)
+16. [Async and await](#async)
 17. [Event loop & Task Queue](#eventloop)
 18. [Prototypes,Higher Order Functions, Currying,First Class Functions](#proto)
 
@@ -921,7 +921,7 @@ Promise.any([
     console.log(err);
 })
 ```
-#### Async Await
+#### Async Await <a name="async"></a>
 
 > Async : - Its a special method to work with promises in JS. 
 > - A function can be made asynchronous by adding the
